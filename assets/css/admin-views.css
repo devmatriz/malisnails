@@ -1,0 +1,1088 @@
+/* ==========================================================================
+   Views redesign — MALIS NAILS
+   Loaded after admin.css and admin-dashboard.css (reuses its --mn-* tokens).
+   Scope: every admin view (Citas, Clientes, Servicios, Ventas, Inventario,
+   Empleados, Reportes, Login), drawers and toasts. Visual only.
+   ========================================================================== */
+
+/* ---------- Section heads ---------- */
+
+.view .section-head {
+  margin-bottom: 22px;
+  align-items: flex-end;
+}
+
+.view .section-head h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--mn-ink);
+  letter-spacing: -0.015em;
+}
+
+.view .section-note {
+  margin-top: 6px;
+  color: var(--mn-muted);
+  font-size: 0.93rem;
+}
+
+.view h2,
+.view h3 {
+  color: var(--mn-ink);
+}
+
+.view h3 {
+  font-weight: 600;
+}
+
+.view .muted,
+.view td[colspan] {
+  color: var(--mn-muted);
+}
+
+/* ---------- Buttons ---------- */
+
+.view .primary-button,
+.drawer .primary-button {
+  min-height: 44px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: var(--mn-radius-sm);
+  background: var(--mn-gradient-pink);
+  color: #fff;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 20px -10px rgba(219, 39, 119, 0.65);
+}
+
+.view .primary-button:hover,
+.drawer .primary-button:hover {
+  background: var(--mn-gradient-pink);
+  filter: brightness(1.05);
+  box-shadow: 0 14px 26px -12px rgba(219, 39, 119, 0.75);
+}
+
+.view .quiet-button,
+.drawer .quiet-button {
+  min-height: 44px;
+  padding: 0 16px;
+  border: 1px solid var(--mn-line);
+  border-radius: var(--mn-radius-sm);
+  background: var(--mn-surface);
+  color: var(--mn-text);
+  font-weight: 600;
+}
+
+.view .quiet-button:hover,
+.drawer .quiet-button:hover,
+.view .icon-button:hover,
+.drawer .icon-button:hover {
+  background: var(--mn-pink-soft);
+  border-color: #FBCFE8;
+  color: var(--mn-pink-deep);
+}
+
+.view .icon-button,
+.drawer .icon-button {
+  width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--mn-line);
+  border-radius: 12px;
+  background: var(--mn-surface);
+  color: var(--mn-text);
+}
+
+.view .text-button {
+  min-height: 34px;
+  padding: 0 10px;
+  border-radius: 10px;
+  color: var(--mn-pink-deep);
+  font-weight: 600;
+  font-size: 0.88rem;
+  text-decoration: none;
+}
+
+.view .text-button:hover {
+  background: var(--mn-pink-soft);
+}
+
+/* Small inline action buttons (agenda, solicitudes, catálogo, inventario). */
+.view .schedule-actions button,
+.view .booking-request-actions button,
+.view .admin-record-actions button {
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--mn-line);
+  border-radius: 10px;
+  background: var(--mn-surface);
+  color: var(--mn-text);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.view .schedule-actions button:hover,
+.view .booking-request-actions button:hover,
+.view .admin-record-actions button:hover {
+  background: var(--mn-pink-soft);
+  border-color: #FBCFE8;
+  color: var(--mn-pink-deep);
+}
+
+.view .schedule-actions .action-primary,
+.view .booking-request-actions button:first-child {
+  border-color: transparent;
+  background: var(--mn-gradient-pink);
+  color: #fff;
+  box-shadow: 0 8px 16px -10px rgba(219, 39, 119, 0.7);
+}
+
+.view .schedule-actions .action-primary:hover,
+.view .booking-request-actions button:first-child:hover {
+  background: var(--mn-gradient-pink);
+  color: #fff;
+  filter: brightness(1.05);
+}
+
+.view .admin-record-actions button[data-service-action="delete"],
+.view .admin-record-actions button[data-product-action="delete"] {
+  border-color: #FECDD3;
+  background: #FFF1F2;
+  color: #BE123C;
+}
+
+.view .admin-record-actions button[data-service-action="delete"]:hover,
+.view .admin-record-actions button[data-product-action="delete"]:hover {
+  border-color: #FDA4AF;
+  background: #FFE4E6;
+  color: #9F1239;
+}
+
+/* ---------- Surfaces ---------- */
+
+.view .panel,
+.view .table-panel,
+.view .service-card,
+.view .stock-card,
+.view .team-card,
+.view .login-card {
+  border: 1px solid var(--mn-line);
+  border-radius: var(--mn-radius);
+  background: var(--mn-surface);
+  box-shadow: var(--mn-shadow);
+}
+
+.view .panel {
+  padding: 22px 24px;
+}
+
+.view .panel h2 {
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.view .empty-state {
+  border: 1px dashed #F5D0E6;
+  border-radius: var(--mn-radius);
+  background: #FFFBFD;
+}
+
+.view .empty-state strong {
+  color: var(--mn-ink);
+  font-weight: 600;
+}
+
+.view .empty-state p {
+  color: var(--mn-muted);
+}
+
+.view .loading-state {
+  border-color: var(--mn-line);
+  border-radius: var(--mn-radius);
+  background: var(--mn-surface);
+}
+
+.view .loading-state span {
+  border-color: #FCE7F3;
+  border-top-color: var(--mn-pink);
+}
+
+/* ---------- Summary cards (Citas, Clientes, Ventas, Empleados) ---------- */
+
+.view .schedule-summary,
+.view .client-summary-grid,
+.view .sales-summary-grid,
+.view .team-summary-grid {
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.view .schedule-summary article,
+.view .client-summary-grid article,
+.view .sales-summary-grid article,
+.view .team-summary-grid article {
+  position: relative;
+  min-height: 118px;
+  padding: 20px 20px 18px;
+  overflow: hidden;
+  border: 1px solid var(--mn-line);
+  border-radius: var(--mn-radius);
+  background: var(--mn-surface);
+  box-shadow: var(--mn-shadow);
+}
+
+/* Color accent strip, same order as the dashboard cards. */
+.view .schedule-summary article::before,
+.view .client-summary-grid article::before,
+.view .sales-summary-grid article::before,
+.view .team-summary-grid article::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 5px;
+  background: linear-gradient(180deg, #F472B6, var(--mn-pink-deep));
+}
+
+.view :is(.schedule-summary, .client-summary-grid, .sales-summary-grid, .team-summary-grid) article:nth-child(2)::before {
+  background: linear-gradient(180deg, #C084FC, var(--mn-purple));
+}
+
+.view :is(.schedule-summary, .client-summary-grid, .sales-summary-grid, .team-summary-grid) article:nth-child(3)::before {
+  background: linear-gradient(180deg, #7DD3FC, #0EA5E9);
+}
+
+.view :is(.schedule-summary, .client-summary-grid, .sales-summary-grid, .team-summary-grid) article:nth-child(4)::before {
+  background: linear-gradient(180deg, #FDBA74, #F97316);
+}
+
+.view :is(.schedule-summary, .client-summary-grid, .sales-summary-grid, .team-summary-grid) span {
+  color: var(--mn-muted);
+  font-size: 0.86rem;
+  font-weight: 600;
+}
+
+.view :is(.schedule-summary, .client-summary-grid, .sales-summary-grid, .team-summary-grid) small {
+  color: var(--mn-muted);
+  font-size: 0.82rem;
+}
+
+.view :is(.schedule-summary, .client-summary-grid, .sales-summary-grid, .team-summary-grid) strong {
+  margin: 10px 0 6px;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.85rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--mn-ink);
+}
+
+/* Pending appointments need attention: soft orange tint. */
+.view .schedule-summary article[data-tone="warning"] {
+  border-color: #FED7AA;
+  background: linear-gradient(135deg, #FFF7ED, #FFFFFF 70%);
+}
+
+/* Total cobrado: highlighted like the pink dashboard card. */
+.view .sales-summary-grid .receipt-total {
+  border-color: transparent !important;
+  background: linear-gradient(135deg, #F472B6 0%, #EC4899 50%, #DB2777 100%);
+  box-shadow: 0 18px 36px -18px rgba(219, 39, 119, 0.7);
+}
+
+.view .sales-summary-grid .receipt-total::before {
+  inset: -50px -50px auto auto;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.view .sales-summary-grid .receipt-total span,
+.view .sales-summary-grid .receipt-total small,
+.view .sales-summary-grid .receipt-total strong {
+  color: #fff;
+}
+
+.view .sales-summary-grid .receipt-total span,
+.view .sales-summary-grid .receipt-total small {
+  opacity: 0.92;
+}
+
+/* ---------- Forms & inputs ---------- */
+
+.view .select,
+.view .login-card input,
+.view .admin-form-panel input:not([type="checkbox"]),
+.view .admin-form-panel textarea,
+.view .availability-form input,
+.view .payment-form input,
+.view .payment-form select,
+.view .client-search {
+  border: 1px solid #ECE3EC;
+  border-radius: 12px;
+  background: var(--mn-surface);
+  color: var(--mn-ink);
+}
+
+.view .select:hover,
+.view .admin-form-panel input:not([type="checkbox"]):hover,
+.view .admin-form-panel textarea:hover,
+.view .availability-form input:hover {
+  border-color: #F5D0E6;
+}
+
+.view .select:focus,
+.view input:focus,
+.view select:focus,
+.view textarea:focus {
+  outline: 0;
+  border-color: #F472B6;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.12);
+}
+
+.view .search {
+  height: 46px;
+  border: 1px solid var(--mn-line);
+  border-radius: var(--mn-radius-sm);
+  background: var(--mn-surface);
+  color: #A1A1AA;
+}
+
+.view .search:focus-within {
+  border-color: #F9A8D4;
+  box-shadow: 0 0 0 4px rgba(236, 72, 153, 0.12);
+}
+
+.view .search input:focus {
+  box-shadow: none;
+}
+
+.view .admin-form-panel label,
+.view .availability-form label,
+.view .filter-row label,
+.view .payment-form label,
+.view .login-card label {
+  color: var(--mn-text);
+  font-weight: 600;
+}
+
+.view .filter-row label,
+.view .payment-form label {
+  font-size: 0.8rem;
+}
+
+.view .check-option {
+  border: 1px solid #ECE3EC;
+  border-radius: 12px;
+  background: #FFFBFD;
+}
+
+.view input[type="checkbox"] {
+  accent-color: var(--mn-pink);
+}
+
+.view .admin-form-panel:not(.drawer) {
+  border: 1px solid var(--mn-line);
+  border-radius: var(--mn-radius);
+  box-shadow: var(--mn-shadow);
+}
+
+.view .form-message[data-tone="success"] { color: #15803D; }
+.view .form-message[data-tone="warning"] { color: #C2410C; }
+.view .form-message[data-tone="error"] { color: #BE123C; }
+
+/* ---------- Drawers (side forms) ---------- */
+
+.view .admin-form-panel.drawer {
+  border-left: 1px solid var(--mn-line);
+  border-radius: 24px 0 0 24px;
+  box-shadow: -30px 0 60px -30px rgba(24, 24, 27, 0.35);
+}
+
+.view .drawer-head {
+  border-bottom-color: var(--mn-line);
+}
+
+.view .drawer-head h2 {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.view .drawer label {
+  color: var(--mn-text);
+}
+
+.view .drawer .admin-form-actions {
+  border-top-color: var(--mn-line);
+}
+
+.drawer-backdrop {
+  background: rgba(24, 24, 27, 0.32);
+  backdrop-filter: blur(2px);
+}
+
+/* ---------- Status pills (all views) ---------- */
+
+.view .status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 26px;
+  padding: 0 11px;
+  border: 0;
+  border-radius: 999px;
+  background: #F3E8FF;
+  color: #7E22CE;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.view .status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: 0 0 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.view .status.ok { background: #DCFCE7; color: #15803D; }
+.view .status.warn { background: #FFEDD5; color: #C2410C; }
+.view .status.danger { background: #FCE7F3; color: #BE185D; }
+
+.view .admin-state-legend {
+  margin: -6px 0 20px;
+}
+
+/* ---------- Tables ---------- */
+
+.view .table-panel {
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+}
+
+.view table {
+  min-width: 640px;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Let text cells wrap so every column fits on desktop; keep pills/amounts on one line. */
+.view td {
+  white-space: normal;
+}
+
+.view th,
+.view td .status,
+.view td:nth-last-child(2):not([colspan]) {
+  white-space: nowrap;
+}
+
+.view .table-panel h2 {
+  font-size: 1.08rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.view .client-tools {
+  grid-template-columns: 1fr;
+}
+
+.view th {
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--mn-line);
+  background: #FDF8FB;
+  color: var(--mn-muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.view td {
+  padding: 16px 18px;
+  border-bottom: 1px solid #F6F0F5;
+  color: var(--mn-text);
+  font-size: 0.92rem;
+  vertical-align: middle;
+}
+
+.view tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.view tbody tr {
+  transition: background-color 160ms ease;
+}
+
+.view tbody tr:hover {
+  background: #FFF7FB;
+}
+
+.view td strong {
+  color: var(--mn-ink);
+  font-weight: 600;
+}
+
+.view .client-table-panel td small {
+  color: var(--mn-muted);
+  font-size: 0.82rem;
+}
+
+.view td:nth-last-child(2):not([colspan]) {
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--mn-ink);
+}
+
+.view .sales-table-panel {
+  padding: 0;
+}
+
+.view .sales-table-header {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--mn-line);
+}
+
+/* ---------- Citas ---------- */
+
+.view .date-switcher {
+  min-height: 66px;
+  padding: 10px 12px;
+  border: 1px solid var(--mn-line);
+  border-radius: var(--mn-radius);
+  background: var(--mn-surface);
+  box-shadow: var(--mn-shadow);
+}
+
+.view .date-switcher strong {
+  color: var(--mn-ink);
+  font-weight: 600;
+}
+
+.view .date-switcher span {
+  color: var(--mn-muted);
+  font-size: 0.86rem;
+}
+
+.view .schedule-layout {
+  gap: 20px;
+}
+
+.view .schedule-item time {
+  justify-self: start;
+  margin-top: 14px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: var(--mn-pink-soft);
+  color: var(--mn-pink-deep);
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.view .schedule-card {
+  padding: 16px 18px;
+  border: 1px solid var(--mn-line);
+  border-radius: 16px;
+  background: var(--mn-surface);
+  transition: border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.view .schedule-card:hover {
+  border-color: #FBCFE8;
+  box-shadow: var(--mn-shadow);
+}
+
+.view .schedule-item.pending .schedule-card {
+  border-color: #FED7AA;
+  background: linear-gradient(90deg, #FFF7ED, #FFFFFF 60%);
+}
+
+.view .schedule-item.completed .schedule-card {
+  border-color: #BBF7D0;
+  background: linear-gradient(90deg, #F0FDF4, #FFFFFF 60%);
+}
+
+.view .schedule-card strong {
+  color: var(--mn-ink);
+  font-weight: 600;
+}
+
+.view .schedule-card > .status {
+  display: inline-flex;
+  align-self: start;
+  justify-self: end;
+}
+
+.view .schedule-card span:not(.status),
+.view .schedule-card small {
+  color: var(--mn-muted);
+  font-size: 0.88rem;
+}
+
+.view .appointment-detail {
+  border: 1px solid var(--mn-line);
+  border-radius: 16px;
+  background: #FFFBFD;
+}
+
+.view .appointment-detail dl div,
+.view .payment-list div,
+.view .payment-form {
+  border-color: #F3EAF2;
+}
+
+.view .appointment-detail dt {
+  color: var(--mn-muted);
+  font-weight: 600;
+}
+
+.view .appointment-detail dd {
+  color: var(--mn-ink);
+  font-weight: 600;
+}
+
+.view .online-bookings-panel {
+  margin-top: 20px;
+}
+
+.view .booking-request-card {
+  padding: 16px 18px;
+  border: 1px solid var(--mn-line);
+  border-radius: 16px;
+  background: #FFFBFD;
+}
+
+.view .booking-request-card strong {
+  color: var(--mn-ink);
+  font-weight: 600;
+}
+
+.view .booking-request-card span,
+.view .booking-request-card small {
+  color: var(--mn-muted);
+  font-size: 0.88rem;
+}
+
+/* ---------- Clientes ---------- */
+
+.view .client-layout {
+  gap: 20px;
+}
+
+.view .client-profile-card dl {
+  border-color: var(--mn-line);
+  border-radius: 16px;
+  background: var(--mn-line);
+}
+
+.view .client-profile-card dl div {
+  background: var(--mn-surface);
+}
+
+.view .client-profile-card dt {
+  color: var(--mn-muted);
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.view .client-profile-card dd {
+  color: var(--mn-ink);
+  font-weight: 600;
+}
+
+/* ---------- Servicios & Inventario ---------- */
+
+.view .service-grid,
+.view .inventory-grid,
+.view .team-grid {
+  gap: 20px;
+}
+
+.view .admin-record-card {
+  padding: 22px;
+  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), border-color 220ms ease;
+}
+
+.view .admin-record-card:hover,
+.view .team-card:hover {
+  transform: translateY(-2px);
+  border-color: #FBCFE8;
+  box-shadow: 0 2px 4px rgba(24, 24, 27, 0.04), 0 18px 40px -16px rgba(219, 39, 119, 0.24);
+}
+
+.view .admin-record-card h3 {
+  margin: 2px 0 0;
+  font-size: 1.08rem;
+}
+
+.view .admin-record-card p {
+  margin: 0;
+  color: var(--mn-muted);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.view .service-card > span:first-child {
+  min-height: 26px;
+  padding: 0 11px;
+  background: var(--mn-pink-soft);
+  color: var(--mn-pink-deep);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.view .service-card > strong,
+.view .stock-card > strong {
+  margin-top: 4px;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--mn-ink);
+}
+
+.view .stock-level {
+  height: 8px;
+  margin-bottom: 6px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7DD3FC, #0EA5E9);
+}
+
+.view .stock-level.low {
+  background: linear-gradient(90deg, #F472B6, var(--mn-pink-deep));
+}
+
+/* ---------- Ventas ---------- */
+
+.view .sales-command {
+  gap: 14px;
+  margin-bottom: 18px;
+}
+
+.view .sales-command div {
+  padding: 16px 18px;
+  border: 1px solid #FCE7F3;
+  border-radius: 16px;
+  background: var(--mn-pink-soft);
+}
+
+.view .sales-command strong {
+  color: #9D174D;
+  font-weight: 600;
+}
+
+.view .sales-command span {
+  color: var(--mn-text);
+  font-size: 0.9rem;
+}
+
+.view .sales-layout {
+  gap: 20px;
+}
+
+.view .cash-checklist label {
+  min-height: 52px;
+  border: 1px solid var(--mn-line);
+  border-radius: 14px;
+  background: #FFFBFD;
+  color: var(--mn-text);
+  font-size: 0.9rem;
+}
+
+.view .cash-checklist label:has(input:checked) {
+  border-color: #BBF7D0;
+  background: #F0FDF4;
+  color: #166534;
+}
+
+.view .cash-close-card .primary-button {
+  width: 100%;
+}
+
+/* ---------- Empleados ---------- */
+
+.view .team-card {
+  padding: 22px;
+  transition: transform 220ms var(--ease-out), box-shadow 220ms var(--ease-out), border-color 220ms ease;
+}
+
+.view .team-card img {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  box-shadow: 0 0 0 3px #fff, 0 0 0 5px #FBCFE8;
+  filter: none;
+  /* If the photo fails to load, show a soft tile instead of overflowing alt text. */
+  overflow: hidden;
+  background: linear-gradient(135deg, #FCE7F3, #F3E8FF);
+  color: transparent;
+  font-size: 0;
+}
+
+.view .team-card h3 {
+  margin-bottom: 2px;
+}
+
+.view .team-card div > span:not(.status) {
+  color: var(--mn-pink-deep);
+  font-size: 0.88rem;
+  font-weight: 500;
+}
+
+.view .team-card > strong {
+  margin-top: 0;
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 600;
+  color: var(--mn-text);
+  font-variant-numeric: tabular-nums;
+}
+
+.view .team-card p {
+  color: var(--mn-muted);
+  font-size: 0.88rem;
+}
+
+.view .team-availability-panel {
+  margin-top: 20px;
+}
+
+.view .availability-list {
+  border-color: var(--mn-line);
+  border-radius: 16px;
+  background: var(--mn-line);
+}
+
+.view .availability-list div {
+  grid-template-columns: auto minmax(140px, 0.4fr) minmax(0, 1fr) auto;
+  gap: 16px;
+  padding: 14px 18px;
+}
+
+.view .availability-list time {
+  white-space: nowrap;
+  justify-self: start;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background: var(--mn-pink-soft);
+  color: var(--mn-pink-deep);
+  font-family: "Outfit", system-ui, sans-serif;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.view .availability-list strong {
+  color: var(--mn-ink);
+  font-weight: 600;
+}
+
+.view .availability-list span {
+  color: var(--mn-muted);
+}
+
+/* ---------- Reportes ---------- */
+
+.view .report-pending {
+  align-items: center;
+  max-width: 820px;
+  padding: 32px;
+}
+
+.view .report-pending-icon {
+  width: 56px;
+  height: 56px;
+  flex: 0 0 56px;
+  padding: 14px;
+  border-radius: 18px;
+  background: linear-gradient(135deg, var(--mn-pink), var(--mn-purple));
+  color: #fff;
+  box-shadow: 0 14px 26px -14px rgba(147, 51, 234, 0.7);
+}
+
+.view .report-pending h3 {
+  font-size: 1.2rem;
+}
+
+.view .report-pending p {
+  color: var(--mn-muted);
+}
+
+/* ---------- Login ---------- */
+
+#login .login-shell {
+  min-height: calc(100dvh - 160px);
+}
+
+#login .login-card {
+  gap: 16px;
+  padding: 34px 32px;
+  border-radius: 24px;
+  box-shadow: 0 2px 4px rgba(24, 24, 27, 0.04), 0 30px 60px -30px rgba(219, 39, 119, 0.35);
+}
+
+#login .login-card .brand-mark {
+  width: 52px;
+  height: 52px;
+  border: 0;
+  border-radius: 16px;
+  background: var(--mn-gradient-pink);
+  color: #fff;
+  font-size: 1.3rem;
+  box-shadow: 0 12px 24px -12px rgba(219, 39, 119, 0.7);
+}
+
+#login .login-card h2 {
+  margin-top: 6px;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+#login .login-card input {
+  height: 48px;
+}
+
+#login .login-card .primary-button {
+  min-height: 48px;
+  margin-top: 4px;
+}
+
+/* ---------- Toast ---------- */
+
+.toast {
+  border-radius: 14px;
+  background: var(--mn-ink);
+  box-shadow: 0 18px 40px -16px rgba(24, 24, 27, 0.5);
+}
+
+.toast[data-tone="error"] {
+  background: #BE123C;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1080px) {
+  .view .schedule-summary,
+  .view .sales-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .view .client-summary-grid,
+  .view .team-summary-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .view .sales-command {
+    grid-template-columns: 1fr;
+  }
+
+  /* Tables: one line per cell and horizontal scroll inside the card. */
+  .view td {
+    white-space: nowrap;
+  }
+
+  .view .service-grid,
+  .view .inventory-grid,
+  .view .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .view .section-head {
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 720px) {
+  .view .section-head .primary-button {
+    width: 100%;
+  }
+
+  .view .panel {
+    padding: 18px;
+  }
+
+  .view .service-grid,
+  .view .inventory-grid,
+  .view .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Summary cards: two compact columns instead of a tall single stack. */
+  .view .schedule-summary,
+  .view .client-summary-grid,
+  .view .sales-summary-grid,
+  .view .team-summary-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .view :is(.schedule-summary, .client-summary-grid, .sales-summary-grid, .team-summary-grid) article {
+    min-height: 0;
+    padding: 16px 14px 14px 18px;
+  }
+
+  .view :is(.schedule-summary, .client-summary-grid, .sales-summary-grid, .team-summary-grid) strong {
+    margin: 6px 0 4px;
+    font-size: 1.4rem;
+  }
+
+  .view th,
+  .view td {
+    padding: 13px 14px;
+  }
+
+  .view .filter-row label {
+    flex: 1 1 150px;
+  }
+
+  .view .filter-row .select {
+    width: 100%;
+  }
+
+  .view .schedule-item time {
+    margin-top: 0;
+  }
+
+  .view .schedule-card > .status {
+    justify-self: start;
+  }
+
+  .view .availability-list div {
+    grid-template-columns: 1fr;
+    justify-items: start;
+    gap: 6px;
+  }
+
+  .view .booking-request-card {
+    grid-template-columns: 1fr;
+  }
+
+  .view .booking-request-actions {
+    justify-content: flex-start;
+  }
+
+  .view .admin-form-panel.drawer {
+    border-radius: 0;
+  }
+
+  #login .login-card {
+    padding: 26px 20px;
+  }
+}
+
+@media (max-width: 340px) {
+  .view .schedule-summary,
+  .view .client-summary-grid,
+  .view .sales-summary-grid,
+  .view .team-summary-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .view .admin-record-card:hover,
+  .view .team-card:hover {
+    transform: none;
+  }
+}

@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MALIS NAILS | Admin</title>
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#FAF9FC">
+  <link rel="icon" type="image/svg+xml" href="../assets/images/favicon.svg?v=2">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;600&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/admin.css">
+  <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+  <link rel="stylesheet" href="../assets/css/admin-views.css">
+  <link rel="stylesheet" href="../assets/css/admin-calendar.css">
+</head>
+<body>
+  <svg class="icon-sprite" aria-hidden="true" focusable="false">
+    <symbol id="i-add" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-add_box" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/></symbol>
+    <symbol id="i-analytics" viewBox="0 0 24 24"><path d="M3 3v18h18M8 17v-6M13 17V7M18 17v-3"/></symbol>
+    <symbol id="i-badge" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M15 9h3M15 13h3M6 16c.6-1.4 1.7-2 3-2s2.4.6 3 2"/></symbol>
+    <symbol id="i-calendar_month" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-calendar_view" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="M7 14h4v3H7zM13 14h4"/></symbol>
+    <symbol id="i-chevron_left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron_right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9" rx="1.5"/><rect x="14" y="3" width="7" height="5" rx="1.5"/><rect x="14" y="12" width="7" height="9" rx="1.5"/><rect x="3" y="16" width="7" height="5" rx="1.5"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M5 21h14"/></symbol>
+    <symbol id="i-group" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M16 4.6a3.5 3.5 0 0 1 0 6.8M18 14.2c1.8.8 3 2.9 3 5.8"/></symbol>
+    <symbol id="i-inventory" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+    <symbol id="i-inventory_2" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5Z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+    <symbol id="i-login" viewBox="0 0 24 24"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4M10 17l5-5-5-5M15 12H3"/></symbol>
+    <symbol id="i-logout" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"/></symbol>
+    <symbol id="i-payments" viewBox="0 0 24 24"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 10v.01M18 14v.01"/></symbol>
+    <symbol id="i-person_add" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6M19 8v6M16 11h6"/></symbol>
+    <symbol id="i-point_of_sale" viewBox="0 0 24 24"><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2Z"/><path d="M9 8h6M9 12h6"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M6 8a6 6 0 1 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.9 1.9 0 0 0 3.4 0"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M19 7V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-3"/><path d="M21 9h-6a3 3 0 0 0 0 6h6Z"/><path d="M15.5 12h.01"/></symbol>
+    <symbol id="i-receipt" viewBox="0 0 24 24"><path d="M5 3h14v18l-3-2-2 2-2-2-2 2-2-2-3 2Z"/><path d="M9 8h6M9 12h6M9 16h3"/></symbol>
+    <symbol id="i-trend_up" viewBox="0 0 24 24"><path d="m3 17 6-6 4 4 8-8"/><path d="M15 7h6v6"/></symbol>
+    <symbol id="i-trend_down" viewBox="0 0 24 24"><path d="m3 7 6 6 4-4 8 8"/><path d="M15 17h6v-6"/></symbol>
+    <symbol id="i-spa" viewBox="0 0 24 24"><path d="M12 3c1 3 3 5 6 6-3 1-5 3-6 6-1-3-3-5-6-6 3-1 5-3 6-6Z"/><path d="M18 15c.4 1.4 1.2 2.2 2.6 2.6-1.4.4-2.2 1.2-2.6 2.6-.4-1.4-1.2-2.2-2.6-2.6 1.4-.4 2.2-1.2 2.6-2.6Z"/></symbol>
+  </svg>
+  <a class="skip-link" href="#main-content">Saltar al contenido</a>
+  <div class="app-shell">
+    <aside class="sidebar" id="admin-sidebar" aria-label="Navegación principal">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">M</span>
+        <div>
+          <strong>MALIS NAILS</strong>
+          <span>Panel operativo</span>
+        </div>
+      </div>
+
+      <nav class="nav-list">
+        <button class="nav-item is-active" data-view="dashboard"><svg class="icon" aria-hidden="true"><use href="#i-dashboard"/></svg><span>Dashboard<small>Decisiones de hoy</small></span></button>
+        <button class="nav-item" data-view="citas"><svg class="icon" aria-hidden="true"><use href="#i-calendar_month"/></svg><span>Citas<small>Agenda y solicitudes</small></span><span class="nav-badge" data-pending-badge hidden></span></button>
+        <button class="nav-item" data-view="calendario"><svg class="icon" aria-hidden="true"><use href="#i-calendar_view"/></svg><span>Calendario<small>Agenda por estilista</small></span></button>
+        <button class="nav-item" data-view="clientes"><svg class="icon" aria-hidden="true"><use href="#i-group"/></svg><span>Clientes<small>Historial y contacto</small></span></button>
+        <button class="nav-item" data-view="servicios"><svg class="icon" aria-hidden="true"><use href="#i-spa"/></svg><span>Servicios<small>Precios y reserva</small></span></button>
+        <button class="nav-item" data-view="ventas"><svg class="icon" aria-hidden="true"><use href="#i-payments"/></svg><span>Ventas<small>Caja y pagos</small></span></button>
+        <button class="nav-item" data-view="inventario"><svg class="icon" aria-hidden="true"><use href="#i-inventory_2"/></svg><span>Inventario<small>Stock y productos</small></span></button>
+        <button class="nav-item" data-view="empleados"><svg class="icon" aria-hidden="true"><use href="#i-badge"/></svg><span>Empleados<small>Equipo y carga</small></span></button>
+        <button class="nav-item" data-view="reportes"><svg class="icon" aria-hidden="true"><use href="#i-analytics"/></svg><span>Reportes<small>Lectura gerencial</small></span></button>
+      </nav>
+
+      <div class="side-actions">
+        <button class="ghost-action" data-view="login"><svg class="icon" aria-hidden="true"><use href="#i-login"/></svg>Iniciar sesión</button>
+      </div>
+    </aside>
+
+    <main class="workspace" id="main-content" tabindex="-1">
+      <header class="topbar">
+        <div class="topbar-title">
+          <button class="icon-button menu-toggle" id="sidebar-toggle" type="button" aria-label="Abrir menú" aria-controls="admin-sidebar" aria-expanded="false"><svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg></button>
+          <div>
+            <h1 id="view-title">Dashboard Administrativo</h1>
+            <p class="topbar-subtitle" id="view-subtitle">Resumen de citas, caja e inventario del salón.</p>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <label class="search">
+            <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="global-search" type="search" placeholder="Filtrar tablas visibles" aria-label="Filtrar filas de las tablas de esta vista">
+          </label>
+          <button class="icon-button notify-button" id="notify-button" type="button" data-view="citas" data-focus="online-bookings-panel" aria-label="Pendientes por confirmar"><svg class="icon" aria-hidden="true"><use href="#i-bell"/></svg><span class="notify-badge" id="notify-badge" hidden></span></button>
+          <button class="primary-button" data-view="citas"><svg class="icon" aria-hidden="true"><use href="#i-add"/></svg>Nueva cita</button>
+          <div class="profile-chip" id="profile-chip" hidden>
+            <span class="profile-avatar" id="profile-avatar" aria-hidden="true">A</span>
+            <span class="profile-meta"><strong id="profile-name">Administración</strong><small id="profile-email"></small></span>
+          </div>
+          <button class="quiet-button is-hidden" id="logout-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-logout"/></svg>Salir</button>
+        </div>
+      </header>
+
+      <nav class="mobile-tabs" aria-label="Navegación móvil">
+        <button class="is-active" data-view="dashboard">Inicio</button>
+        <button data-view="citas">Citas<span class="nav-badge" data-pending-badge hidden></span></button>
+        <button data-view="calendario">Calendario</button>
+        <button data-view="clientes">Clientes</button>
+        <button data-view="ventas">Ventas</button>
+        <button data-view="servicios">Servicios</button>
+        <button data-view="inventario">Inventario</button>
+        <button data-view="empleados">Equipo</button>
+        <button data-view="reportes">Reportes</button>
+      </nav>
+
+      <section class="view is-visible" id="dashboard">
+        <div class="dashboard-command">
+          <div>
+            <h2 id="dashboard-headline">Cargando decisiones de hoy...</h2>
+            <p id="dashboard-subcopy">Estamos leyendo citas, caja e inventario reales.</p>
+          </div>
+          <div class="quick-actions">
+            <button class="primary-button" data-view="citas"><svg class="icon" aria-hidden="true"><use href="#i-add"/></svg>Nueva cita</button>
+            <button class="quiet-button" data-view="ventas"><svg class="icon" aria-hidden="true"><use href="#i-point_of_sale"/></svg>Cobrar</button>
+            <button class="quiet-button" data-view="inventario"><svg class="icon" aria-hidden="true"><use href="#i-inventory"/></svg>Reponer</button>
+          </div>
+        </div>
+
+        <div class="dashboard-status-row" id="dashboard-status-row" aria-label="Estado operativo del día">
+          <span><strong>Horario</strong> 9:00 a. m. – 6:00 p. m.</span>
+        </div>
+
+        <div class="metrics-grid" id="dashboard-metrics" aria-busy="true">
+          <article class="metric-card is-loading"><span>Ingresos de hoy</span><strong>—</strong><small>Cargando</small></article>
+          <article class="metric-card is-loading"><span>Citas de hoy</span><strong>—</strong><small>Cargando</small></article>
+          <article class="metric-card is-loading"><span>Clientes nuevos</span><strong>—</strong><small>Cargando</small></article>
+          <article class="metric-card is-loading"><span>Ticket promedio</span><strong>—</strong><small>Cargando</small></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <article class="panel attention-panel span-4">
+            <div class="panel-header">
+              <div>
+                <h2>Prioridades</h2>
+              </div>
+            </div>
+            <div class="attention-list" id="dashboard-attention-list">
+              <p class="muted">Cargando prioridades…</p>
+            </div>
+          </article>
+
+          <article class="panel span-8">
+            <div class="panel-header">
+              <div>
+                <h2>Ingresos por día</h2>
+              </div>
+              <span class="panel-meta">Últimos 7 días</span>
+            </div>
+            <div class="chart-frame">
+              <canvas id="revenue-chart" height="260" role="img" aria-label="Ingresos de los últimos siete días" aria-describedby="dashboard-insight"></canvas>
+            </div>
+            <p class="dashboard-insight" id="dashboard-insight">Cargando pagos de la semana…</p>
+          </article>
+
+          <article class="panel span-7">
+            <div class="panel-header">
+              <div>
+                <h2>Próximas citas</h2>
+              </div>
+              <button class="text-button" data-view="citas">Ver agenda</button>
+            </div>
+            <div class="appointment-list" id="dashboard-upcoming-list">
+              <p class="muted">Cargando citas de hoy…</p>
+            </div>
+          </article>
+
+          <article class="panel span-5">
+            <div class="panel-header">
+              <div>
+                <h2>Servicios clave</h2>
+              </div>
+            </div>
+            <div class="service-mix" id="dashboard-service-mix">
+              <p class="muted">Cargando servicios de hoy…</p>
+            </div>
+          </article>
+
+          <article class="panel closeout-panel span-12">
+            <div>
+              <h2>Checklist antes de salir</h2>
+            </div>
+            <div class="closeout-grid" id="dashboard-closeout-list">
+              <p class="muted">El checklist se arma con los datos del día.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="view" id="citas">
+        <div class="section-head">
+          <div>
+            <h2>Agenda del día</h2>
+            <p class="section-note">Confirma solicitudes, prepara material y mueve cada cita al siguiente estado sin perder contexto.</p>
+          </div>
+          <button class="primary-button" id="new-appointment-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-add"/></svg>Agendar</button>
+        </div>
+
+        <div class="schedule-toolbar">
+          <div class="date-switcher" aria-label="Cambiar fecha">
+            <button class="icon-button" aria-label="Día anterior"><svg class="icon" aria-hidden="true"><use href="#i-chevron_left"/></svg></button>
+            <div>
+              <strong>Hoy</strong>
+              <span class="schedule-date-meta">Cargando citas…</span>
+            </div>
+            <button class="icon-button" aria-label="Día siguiente"><svg class="icon" aria-hidden="true"><use href="#i-chevron_right"/></svg></button>
+          </div>
+          <div class="filter-row">
+            <label><span>Especialista</span><select class="select" id="schedule-employee-filter"><option value="">Todas las especialistas</option></select></label>
+            <label><span>Estado</span><select class="select" id="schedule-status-filter"><option value="">Todos los estados</option><option value="pending">Pendientes</option><option value="confirmed">Confirmadas</option><option value="in_progress">En proceso</option><option value="completed">Completadas</option><option value="cancelled">Canceladas</option><option value="no_show">No asistió</option></select></label>
+          </div>
+        </div>
+
+        <div class="schedule-summary" id="citas-summary" aria-live="polite">
+          <article data-tone="warning"><span>Solicitudes pendientes</span><strong>—</strong><small>Por aprobar</small></article>
+          <article><span>Citas de hoy</span><strong>—</strong><small>Programadas</small></article>
+          <article><span>Confirmadas</span><strong>—</strong><small>Fecha seleccionada</small></article>
+          <article><span>Canceladas</span><strong>—</strong><small>Fecha seleccionada</small></article>
+        </div>
+
+        <form class="admin-form-panel appointment-form drawer" id="appointment-form" aria-labelledby="appointment-form-title" data-title-new="Nueva cita" data-title-edit="Editar cita" hidden>
+          <div class="drawer-head admin-form-wide">
+            <h2 id="appointment-form-title">Nueva cita</h2>
+            <button class="icon-button" type="button" data-drawer-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+          </div>
+          <input type="hidden" name="id" id="appointment-id">
+          <label class="appointment-field-client">Cliente<input name="client_name" id="appointment-client-name" type="text" maxlength="100" autocomplete="name" required></label>
+          <label class="appointment-field-phone">Teléfono<input name="client_phone" id="appointment-client-phone" type="tel" maxlength="30" autocomplete="tel" required></label>
+          <label class="appointment-field-service">Servicio<select class="select" name="service_id" id="appointment-service" required><option value="">Seleccionar servicio</option></select></label>
+          <label class="appointment-field-employee">Especialista<select class="select" name="employee_id" id="appointment-employee"><option value="">Sin asignar</option></select></label>
+          <label class="appointment-field-date">Fecha<input name="appointment_date" id="appointment-date" type="date" required></label>
+          <label class="appointment-field-time">Hora<input name="appointment_time" id="appointment-time" type="time" required></label>
+          <label class="admin-form-wide">Notas<textarea name="notes" id="appointment-notes" maxlength="180" placeholder="Preferencias, depósito, material o contexto operativo"></textarea></label>
+          <div class="admin-form-actions">
+            <button class="primary-button" type="submit">Guardar cita</button>
+            <button class="quiet-button" type="button" id="clear-appointment-form">Limpiar</button>
+          </div>
+          <p class="form-message admin-form-wide" id="appointment-message" role="status"></p>
+        </form>
+
+        <article class="panel online-bookings-panel" id="online-bookings-panel" tabindex="-1">
+          <div class="panel-header">
+            <div>
+              <h2>Solicitudes pendientes <span class="count-chip" id="booking-request-count" hidden></span></h2>
+              <p class="panel-note">Reservas online que esperan tu aprobación. No son citas confirmadas.</p>
+            </div>
+            <button class="text-button" id="refresh-bookings" type="button">Actualizar</button>
+          </div>
+          <div class="booking-request-list" id="booking-request-list">
+            <p class="muted">Cargando solicitudes…</p>
+          </div>
+        </article>
+
+        <div class="schedule-layout">
+          <article class="panel schedule-panel">
+            <div class="panel-header">
+              <div>
+                <h2>Cabinas y especialistas</h2>
+              </div>
+            </div>
+
+            <div class="schedule-list">
+              <p class="muted">Cargando agenda…</p>
+            </div>
+          </article>
+
+          <aside class="panel appointment-aside">
+            <div class="panel-header">
+              <div>
+                <h2>Detalle de cita</h2>
+              </div>
+            </div>
+            <div class="appointment-detail" id="appointment-detail" aria-live="polite">
+              <p>Elige <strong>Detalle</strong> en una cita de la agenda para ver cliente, servicio, notas y pagos.</p>
+            </div>
+          </aside>
+        </div>
+
+
+      </section>
+
+      <section class="view" id="calendario">
+        <div class="section-head">
+          <div>
+            <h2>Agenda visual del salón</h2>
+            <p class="section-note">Citas reales por fecha, hora y estilista. Las solicitudes online sin aprobar aparecen con borde punteado.</p>
+          </div>
+          <button class="primary-button" id="calendar-new-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-add"/></svg>Nueva cita</button>
+        </div>
+
+        <div class="calendar-toolbar">
+          <div class="calendar-nav">
+            <button class="quiet-button" id="calendar-today" type="button">Hoy</button>
+            <button class="icon-button" id="calendar-prev" type="button" aria-label="Periodo anterior"><svg class="icon" aria-hidden="true"><use href="#i-chevron_left"/></svg></button>
+            <button class="icon-button" id="calendar-next" type="button" aria-label="Periodo siguiente"><svg class="icon" aria-hidden="true"><use href="#i-chevron_right"/></svg></button>
+            <h3 class="calendar-range" id="calendar-range-label" aria-live="polite">—</h3>
+          </div>
+          <div class="calendar-mode" role="group" aria-label="Vista del calendario">
+            <button type="button" data-calendar-mode="day" aria-pressed="false">Día</button>
+            <button type="button" data-calendar-mode="week" aria-pressed="true" class="is-active">Semana</button>
+            <button type="button" data-calendar-mode="month" aria-pressed="false">Mes</button>
+          </div>
+        </div>
+
+        <div class="calendar-filters">
+          <label><span>Estilista</span><select class="select" id="calendar-employee-filter"><option value="">Todas las estilistas</option></select></label>
+          <label><span>Estado</span><select class="select" id="calendar-status-filter"><option value="">Todos los estados</option><option value="request">Solicitudes por aprobar</option><option value="pending">Pendientes</option><option value="confirmed">Confirmadas</option><option value="in_progress">En proceso</option><option value="completed">Completadas</option><option value="cancelled">Canceladas</option><option value="no_show">No asistió</option></select></label>
+          <label class="calendar-check"><input type="checkbox" id="calendar-show-requests" checked><span>Mostrar solicitudes por aprobar</span></label>
+          <ul class="calendar-legend" aria-label="Colores por estado">
+            <li data-cal-status="request">Solicitud</li>
+            <li data-cal-status="pending">Pendiente</li>
+            <li data-cal-status="confirmed">Confirmada</li>
+            <li data-cal-status="in_progress">En proceso</li>
+            <li data-cal-status="completed">Completada</li>
+            <li data-cal-status="cancelled">Cancelada</li>
+          </ul>
+        </div>
+
+        <div class="calendar-layout">
+          <article class="panel calendar-panel">
+            <div class="calendar-board" id="calendar-board">
+              <p class="muted calendar-empty">Cargando calendario…</p>
+            </div>
+            <p class="calendar-hint">Haz clic en un espacio libre para agendar. Arrastra una cita pendiente o confirmada para reprogramarla: se valida la disponibilidad de la estilista antes de guardar.</p>
+          </article>
+
+          <aside class="panel calendar-detail" id="calendar-detail" tabindex="-1" aria-label="Detalle de la cita" hidden>
+            <div class="panel-header">
+              <div>
+                <h2>Detalle</h2>
+              </div>
+              <button class="icon-button" id="calendar-detail-close" type="button" aria-label="Cerrar detalle"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+            </div>
+            <div class="calendar-detail-body" id="calendar-detail-body" aria-live="polite">
+              <p class="muted">Selecciona una cita o solicitud del calendario para ver cliente, servicio, estilista y estado.</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="clientes">
+        <div class="section-head">
+          <div>
+            <h2>Historial, frecuencia y preferencias</h2>
+            <p class="section-note">Ubica clientas frecuentes, preferencias de servicio y seguimientos pendientes antes de confirmar nuevas citas.</p>
+          </div>
+          <button class="primary-button" id="new-client-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-person_add"/></svg>Nuevo cliente</button>
+        </div>
+
+        <div class="client-summary-grid" id="client-summary-grid">
+          <article><span>Clientes</span><strong>—</strong><small>Cargando</small></article>
+          <article><span>Frecuentes</span><strong>—</strong><small>3+ citas registradas</small></article>
+          <article><span>Seguimiento</span><strong>—</strong><small>Con notas o alergias</small></article>
+        </div>
+
+        <form class="admin-form-panel client-form drawer" id="client-form" aria-labelledby="client-form-title" data-title-new="Nuevo cliente" data-title-edit="Editar cliente" hidden>
+          <div class="drawer-head admin-form-wide">
+            <h2 id="client-form-title">Nuevo cliente</h2>
+            <button class="icon-button" type="button" data-drawer-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+          </div>
+          <input type="hidden" name="id" id="client-id">
+          <label>Nombre<input name="full_name" id="client-name" type="text" maxlength="100" autocomplete="name" required></label>
+          <label>Teléfono<input name="phone" id="client-phone" type="tel" maxlength="30" autocomplete="tel" required></label>
+          <label>Email<input name="email" id="client-email" type="email" maxlength="120" autocomplete="email"></label>
+          <label>Preferencias<input name="preferences" id="client-preferences" type="text" maxlength="160" placeholder="Servicio, horario o estilo favorito"></label>
+          <label class="admin-form-wide">Alergias<input name="allergies" id="client-allergies" type="text" maxlength="160" placeholder="Materiales, productos o cuidados especiales"></label>
+          <label class="admin-form-wide">Notas internas<textarea name="internal_notes" id="client-notes" maxlength="220" placeholder="Seguimiento, historial o indicaciones para el equipo"></textarea></label>
+          <div class="admin-form-actions">
+            <button class="primary-button" type="submit">Guardar cliente</button>
+            <button class="quiet-button" type="button" id="clear-client-form">Limpiar</button>
+          </div>
+          <p class="form-message admin-form-wide" id="client-message" role="status"></p>
+        </form>
+
+        <div class="client-tools">
+          <label class="search client-search">
+            <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+            <input id="client-search" type="search" placeholder="Buscar por nombre, teléfono o preferencia">
+          </label>
+        </div>
+
+        <div class="client-layout">
+          <div class="table-panel client-table-panel">
+            <table>
+              <thead><tr><th>Cliente</th><th>Teléfono</th><th>Última visita</th><th>Preferencia</th><th>Estado</th><th>Total</th><th>Acción</th></tr></thead>
+              <tbody id="client-table-body">
+                <tr><td colspan="7">Cargando clientes reales...</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <aside class="panel client-profile-card" id="client-profile-card">
+            <h2>Perfil de clienta</h2>
+            <p class="muted">Elige una clienta en la tabla para ver su historial, notas y agendarle una cita.</p>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="servicios">
+        <div class="section-head">
+          <div>
+            <h2>Catálogo, precios y visibilidad online</h2>
+            <p class="section-note">Activa solo los servicios listos para atender. La visibilidad online controla lo que puede reservar una clienta.</p>
+          </div>
+          <button class="primary-button" type="button" id="new-service-button"><svg class="icon" aria-hidden="true"><use href="#i-add"/></svg>Servicio</button>
+        </div>
+
+        <form class="admin-form-panel drawer" id="service-form" aria-labelledby="service-form-title" data-title-new="Nuevo servicio" data-title-edit="Editar servicio" hidden>
+          <div class="drawer-head admin-form-wide">
+            <h2 id="service-form-title">Nuevo servicio</h2>
+            <button class="icon-button" type="button" data-drawer-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+          </div>
+          <input type="hidden" name="id" id="service-id">
+          <label>Nombre<input name="name" id="service-name" type="text" maxlength="100" required></label>
+          <label>Categoría<input name="category" id="service-category" type="text" maxlength="60" required></label>
+          <label>Precio base<input name="base_price" id="service-price" type="number" min="0" step="0.01" required></label>
+          <label>Duración (minutos)<input name="duration_minutes" id="service-duration" type="number" min="1" step="1" required></label>
+          <label class="admin-form-wide">Descripción<input name="description" id="service-description" type="text" maxlength="180"></label>
+          <label class="check-option"><input name="active" id="service-active" type="checkbox" checked> Activo</label>
+          <label class="check-option"><input name="online_booking_enabled" id="service-online" type="checkbox" checked> Disponible en reserva online</label>
+          <div class="admin-form-actions">
+            <button class="primary-button" type="submit">Guardar servicio</button>
+            <button class="quiet-button" type="button" id="cancel-service-edit">Limpiar</button>
+          </div>
+          <p class="form-message admin-form-wide" id="service-message" role="status"></p>
+        </form>
+        <div class="admin-state-legend" aria-label="Estados de servicios">
+          <span class="status ok">Activo</span>
+          <span class="status warn">Inactivo</span>
+          <span class="status">Solo admin</span>
+          <span class="status ok">Reserva online</span>
+        </div>
+
+        <div class="service-grid" id="admin-service-grid">
+          <p class="muted">Cargando servicios…</p>
+        </div>
+      </section>
+
+      <section class="view" id="ventas">
+        <div class="section-head">
+          <div>
+            <h2>Caja del día</h2>
+            <p class="section-note">Registra pagos, detecta saldos pendientes y prepara el cierre diario con referencias claras.</p>
+          </div>
+          <button class="primary-button" type="button" data-view="citas"><svg class="icon" aria-hidden="true"><use href="#i-point_of_sale"/></svg>Cobrar una cita</button>
+        </div>
+        <div class="sales-command" id="sales-command">
+          <div><strong>Corte pendiente</strong><span>Sin datos cargados todavía.</span></div>
+          <div><strong>Caja esperada</strong><span>Cargando pagos reales.</span></div>
+          <div><strong>Siguiente acción</strong><span>Abre una cita y registra pagos para alimentar caja.</span></div>
+        </div>
+
+        <div class="sales-summary-grid" id="sales-summary-grid">
+          <article class="receipt-total"><span>Total cobrado</span><strong>C$ 0</strong><small>Pagos registrados hoy</small></article>
+          <article><span>Efectivo</span><strong>C$ 0</strong><small>Disponible en caja</small></article>
+          <article><span>Transferencia</span><strong>C$ 0</strong><small>Referencias por revisar</small></article>
+          <article><span>Tarjeta</span><strong>C$ 0</strong><small>Lote abierto</small></article>
+        </div>
+
+        <div class="sales-layout">
+          <article class="table-panel sales-table-panel">
+            <div class="panel-header sales-table-header">
+              <div>
+                <h2>Pagos de hoy</h2>
+              </div>
+              <select class="select" id="sales-method-filter"><option value="">Todos los métodos</option><option value="transfer">Transferencia</option><option value="cash">Efectivo</option><option value="card">Tarjeta</option><option value="mixed">Mixto</option></select>
+            </div>
+            <table>
+              <thead><tr><th>Factura</th><th>Cliente</th><th>Método</th><th>Hora</th><th>Estado</th><th>Monto</th><th>Acción</th></tr></thead>
+              <tbody id="sales-payment-list">
+                <tr><td colspan="7">Cargando pagos reales...</td></tr>
+              </tbody>
+            </table>
+          </article>
+
+          <aside class="panel cash-close-card">
+            <h2>Antes de cerrar caja</h2>
+            <div class="cash-checklist" id="cash-close-checklist">
+              <label><input type="checkbox"> Validar referencias bancarias</label>
+              <label><input type="checkbox"> Confirmar efectivo físico</label>
+              <label><input type="checkbox"> Revisar pagos parciales</label>
+              <label><input type="checkbox"> Exportar reporte del día</label>
+            </div>
+            <button class="primary-button" type="button" id="export-sales-csv">Exportar cierre CSV</button>
+          </aside>
+        </div>
+      </section>
+
+      <section class="view" id="inventario">
+        <div class="section-head">
+          <div>
+            <h2>Productos, stock mínimo y visibilidad pública</h2>
+            <p class="section-note">Mantén visible el riesgo de reposición. Los productos públicos aparecen como respaldo de confianza en la landing.</p>
+          </div>
+          <button class="primary-button" type="button" id="new-product-button"><svg class="icon" aria-hidden="true"><use href="#i-add_box"/></svg>Producto</button>
+        </div>
+
+        <form class="admin-form-panel drawer" id="product-form" aria-labelledby="product-form-title" data-title-new="Nuevo producto" data-title-edit="Editar producto" hidden>
+          <div class="drawer-head admin-form-wide">
+            <h2 id="product-form-title">Nuevo producto</h2>
+            <button class="icon-button" type="button" data-drawer-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+          </div>
+          <input type="hidden" name="id" id="product-id">
+          <label>Nombre<input name="name" id="product-name" type="text" maxlength="100" required></label>
+          <label>Marca<input name="brand" id="product-brand" type="text" maxlength="80"></label>
+          <label>Categoría<input name="category" id="product-category" type="text" maxlength="60" required></label>
+          <label>Unidad<input name="unit" id="product-unit" type="text" value="unidad" maxlength="30" required></label>
+          <label>Stock actual<input name="current_stock" id="product-stock" type="number" min="0" step="0.01" required></label>
+          <label>Stock mínimo<input name="minimum_stock" id="product-minimum" type="number" min="0" step="0.01" required></label>
+          <label>Costo<input name="cost" id="product-cost" type="number" min="0" step="0.01"></label>
+          <label>Proveedor<input name="supplier" id="product-supplier" type="text" maxlength="100"></label>
+          <label class="check-option"><input name="active" id="product-active" type="checkbox" checked> Activo</label>
+          <label class="check-option"><input name="public_visible" id="product-public" type="checkbox"> Visible en la página pública</label>
+          <div class="admin-form-actions">
+            <button class="primary-button" type="submit">Guardar producto</button>
+            <button class="quiet-button" type="button" id="cancel-product-edit">Limpiar</button>
+          </div>
+          <p class="form-message admin-form-wide" id="product-message" role="status"></p>
+        </form>
+        <div class="admin-state-legend" aria-label="Estados de inventario">
+          <span class="status ok">Activo</span>
+          <span class="status warn">Inactivo</span>
+          <span class="status danger">Stock bajo</span>
+          <span class="status ok">Visible público</span>
+        </div>
+
+        <div class="inventory-grid" id="admin-product-grid">
+          <p class="muted">Cargando productos…</p>
+        </div>
+      </section>
+
+      <section class="view" id="empleados">
+        <div class="section-head">
+          <div>
+            <h2>Equipo y rendimiento</h2>
+            <p class="section-note">Revisa ocupación, especialidades, disponibilidad y comisiones antes de mover citas o aceptar reservas.</p>
+          </div>
+          <button class="primary-button" id="new-employee-button" type="button"><svg class="icon" aria-hidden="true"><use href="#i-person_add"/></svg>Agregar</button>
+        </div>
+
+        <div class="team-summary-grid" id="team-summary-grid">
+          <article><span>Equipo</span><strong>—</strong><small>Cargando</small></article>
+          <article><span>Activas</span><strong>—</strong><small>Disponibles para agenda</small></article>
+          <article><span>Comisión media</span><strong>—</strong><small>Equipo activo</small></article>
+        </div>
+
+        <form class="admin-form-panel employee-form drawer" id="employee-form" aria-labelledby="employee-form-title" data-title-new="Nueva especialista" data-title-edit="Editar especialista" hidden>
+          <div class="drawer-head admin-form-wide">
+            <h2 id="employee-form-title">Nueva especialista</h2>
+            <button class="icon-button" type="button" data-drawer-close aria-label="Cerrar"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+          </div>
+          <input type="hidden" name="id" id="employee-id">
+          <label>Nombre<input name="full_name" id="employee-name" type="text" maxlength="100" required></label>
+          <label>Teléfono<input name="phone" id="employee-phone" type="tel" maxlength="30"></label>
+          <label>Especialidad<input name="specialty" id="employee-specialty" type="text" maxlength="100" required></label>
+          <label>Comisión %<input name="commission_rate" id="employee-commission" type="number" min="0" max="100" step="0.01" value="0" required></label>
+          <label class="check-option"><input name="active" id="employee-active" type="checkbox" checked> Activa en agenda</label>
+          <div class="admin-form-actions">
+            <button class="primary-button" type="submit">Guardar empleada</button>
+            <button class="quiet-button" type="button" id="clear-employee-form">Limpiar</button>
+          </div>
+          <p class="form-message admin-form-wide" id="employee-message" role="status"></p>
+        </form>
+
+        <div class="team-grid" id="team-grid">
+          <article class="empty-state"><strong>Cargando equipo</strong><p>Los empleados activos alimentan agenda y filtros de especialistas.</p></article>
+        </div>
+
+        <article class="panel team-availability-panel">
+          <div class="panel-header">
+            <div><h2>Horarios y bloqueos</h2></div>
+          </div>
+          <form class="availability-form" id="working-hours-form">
+            <label>Especialista<select class="select" name="employee_id" required><option value="">Seleccionar</option></select></label>
+            <label>Día<select class="select" name="weekday" required><option value="1">Lunes</option><option value="2">Martes</option><option value="3">Miércoles</option><option value="4">Jueves</option><option value="5">Viernes</option><option value="6">Sábado</option><option value="0">Domingo</option></select></label>
+            <label>Inicio<input name="start_time" type="time" value="09:00" required></label>
+            <label>Fin<input name="end_time" type="time" value="18:00" required></label>
+            <button class="primary-button" type="submit">Agregar horario</button>
+          </form>
+          <form class="availability-form" id="time-block-form">
+            <label>Especialista<select class="select" name="employee_id" required><option value="">Seleccionar</option></select></label>
+            <label>Fecha<input name="block_date" type="date" required></label>
+            <label>Inicio<input name="start_time" type="time" value="13:00" required></label>
+            <label>Fin<input name="end_time" type="time" value="14:00" required></label>
+            <label>Motivo<input name="reason" type="text" maxlength="120" placeholder="Almuerzo, permiso, capacitación"></label>
+            <button class="quiet-button" type="submit">Bloquear</button>
+          </form>
+          <p class="form-message" id="availability-message" role="status"></p>
+          <div class="availability-list" id="availability-list">
+            <div><time>--:--</time><strong>Sin datos cargados</strong><span>Agrega horarios para mostrar disponibilidad pública.</span></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="view" id="reportes">
+        <div class="section-head">
+          <div>
+            <h2>Analítica para decisiones</h2>
+            <p class="section-note">Ingresos, servicios, clientas y equipo por periodo.</p>
+          </div>
+        </div>
+        <article class="panel report-pending">
+          <svg class="icon report-pending-icon" aria-hidden="true"><use href="#i-analytics"/></svg>
+          <div>
+            <h3>Los reportes todavía no están conectados a datos reales</h3>
+            <p>Mientras tanto, el cierre del día se exporta desde Ventas y el resumen diario está en el Dashboard.</p>
+            <div class="report-pending-actions">
+              <button class="primary-button" type="button" data-view="ventas"><svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>Exportar cierre en Ventas</button>
+              <button class="quiet-button" type="button" data-view="dashboard">Ver Dashboard</button>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="view" id="login">
+        <div class="login-shell">
+          <form class="login-card" id="login-form">
+            <span class="brand-mark">M</span>
+            <h2>Entrar al panel</h2>
+            <p class="muted">Acceso administrativo para MALIS NAILS.</p>
+            <label>Correo<input id="login-email" name="email" type="email" autocomplete="email" required></label>
+            <label>Contraseña<input id="login-password" name="password" type="password" autocomplete="current-password" required></label>
+            <p class="form-message" id="login-message" role="alert"></p>
+            <button class="primary-button" type="submit">Ingresar</button>
+          </form>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+  <div class="drawer-backdrop" data-drawer-close hidden></div>
+  <div class="toast" id="admin-toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="../assets/js/admin.js"></script>
+</body>
+</html>
