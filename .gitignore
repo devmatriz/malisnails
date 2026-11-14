@@ -1,0 +1,30 @@
+# Sistema operativo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Herramientas locales de agentes y diseño
+.agents/
+.impeccable/
+.claude/
+
+# Dependencias y builds (si se agregan en el futuro)
+node_modules/
+dist/
+.cache/
+
+# Variables de entorno y secretos
+.env
+.env.*
+!.env.example
+*.pem
+
+# Logs y temporales
+*.log
+*.tmp
+*.bak

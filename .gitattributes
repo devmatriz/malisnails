@@ -1,0 +1,8 @@
+# Normaliza finales de línea para que Windows, macOS y Linux vean los mismos cambios.
+* text=auto eol=lf
+
+*.webp binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.ico binary
